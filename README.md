@@ -45,7 +45,7 @@ docker build -t ${USER} .
 c. Run your new container with new image
 
 ```
-docker run --name myapp-01 -d -p 80:80 ${USER} .
+docker run --name myapp-01 -d -p 80:80 ${USER} 
 ```
 
 d. test called your application with curl as VMs hosted
@@ -98,3 +98,23 @@ curl myapp-02:80/
 develop and implement proxy application by nginx
 
 ![proxy](./image/proxy-workshop.png)
+
+
+---
+# Home work - research and exploration
+จงอภิปรายและตอบคำถามพร้อมแสดงผลลัพธ์
+
+1. จงแสดงวิธิการ mount volume จากเครื่อง host ไปยัง container 
+
+2. จงบอกคำสั่งที่ให้ในการ copy file ระหว่างเครื่อง Host และ container
+
+3. จงบอกวิธีตรวจสอบประวัติการ build ของ image
+
+4. จงอธิบายเกี่ยวกับการทำ lable container มาอย่างละเอียด 
+
+## ส่งคำตอบมาที่  
+to: nukoolmu@ais.co.th
+
+cc: somjateh@ais.co.th
+
+subject : [Trainin][Docker]: Docker 400 Adminstator - username
