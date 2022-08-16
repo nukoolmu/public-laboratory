@@ -19,7 +19,7 @@
 
 a. Create new dockerfile
 
-[!dockerfile](./image/dockerfile.png)
+![dockerfile](./image/dockerfile.png)
 
 ```Dockerfile 
 
@@ -58,7 +58,7 @@ e. Workshop : edit respose message as file server.js and build new image name `$
 
 
 ### 2. Image Share
-[!dockerhub](./image/docker-hup.png)
+![dockerhub](./image/docker-hup.png)
 
 a. Tag your local image
 
@@ -97,4 +97,4 @@ curl myapp-02:80/
 
 develop and implement proxy application by nginx
 
-[!proxy](./image/proxy-workshop.png)
+![proxy](./image/proxy-workshop.png)
