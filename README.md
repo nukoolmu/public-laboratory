@@ -5,7 +5,9 @@
 
 1. Register account hub.docker.com 
 
-         ``` docker lougin -u <user> ```
+```
+ docker lougin -u <user> 
+ ```
 
 1. Docker Runtime
 
@@ -37,13 +39,13 @@ CMD node server.js
 b. Build new images by dockerfiles
 
 ```
-docker build -t $user .
+docker build -t ${USER} .
 ```
 
 c. Run your new container with new image
 
 ```
-docker run --name -d -p 80:80 myapp-01 $user .
+docker run --name myapp-01 -d -p 80:80 ${USER} .
 ```
 
 d. test called your application with curl as VMs hosted
@@ -52,18 +54,47 @@ d. test called your application with curl as VMs hosted
 curl 127.0.0.1:80/
 ```
 
-e. Workshop : edit respose message as file server.js and build new image name `${user}:2.0.0` and run container for new images
+e. Workshop : edit respose message as file server.js and build new image name `${USER}:2.0.0` and run container for new images
 
 
-### 1. Image Share
+### 2. Image Share
 [!dockerhub](./image/docker-hup.png)
 
 a. Tag your local image
 
 ```
-docker tag ${user} your_repos/${user}:1.0.0
+docker tag ${USER} your_repos/${USER}:1.0.0
 ```
 
 b. push your local image to docker registry as your repository
 
 c. check your repository
+
+### 3. Workshop Run a container via your frined's image shared
+
+a. called new container inside existing container
+
+b. stop exist and run container by link a contianer name
+
+```
+docker stop myapp-01
+docker rm myapp-01
+
+```
+
+```
+doker run -d --name myapp-01 -p 80:80 --link myapp-02:myapp-02 friend_img
+
+```
+
+c. called friend's container by lable inside  new container
+
+```
+curl myapp-02:80/ 
+```
+
+### WorkShop 
+
+develop and implement proxy application by nginx
+
+[!proxy](./image/proxy-workshop.png)
