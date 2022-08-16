@@ -117,4 +117,4 @@ to: nukoolmu@ais.co.th
 
 cc: somjateh@ais.co.th
 
-subject : [Trainin][Docker]: Docker 400 Adminstator - username
+subject : [Training][Docker]: Docker 400 Adminstator - username
