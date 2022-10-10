@@ -46,4 +46,45 @@ docker build -t lab-1:1.0.0 .
 > workshop build the docker image from appache [HTTPD](https://hub.docker.com/_/httpd)
 
 
-2. 
+2. build with agrument and environment
+
+```bash
+cd lab-2
+docker build --build-arg BUILD_DATE=$(date -u +'%Y-%m-%dT%H:%M:%S') -t lab-2:1.0.0 . 
+
+```
+
+3. DATA Structure and Copy file
+
+```bash
+cd lab-3
+docker build --build-arg BUILD_DATE=$(date -u +'%Y-%m-%dT%H:%M:%S') -t lab-3:1.0.0 . 
+
+```
+
+>workshop 1 check path relate this lab 
+
+>workshop 2 create new page and linked from frist page 
+
+4. EXPOSE Ports
+
+```bash
+cd lab-4
+docker build --build-arg BUILD_DATE=$(date -u +'%Y-%m-%dT%H:%M:%S') -t lab-4:1.0.0 . 
+```
+
+>workshop discussion about this workshop
+
+5. onbuild command
+
+```bash
+cd lab-5
+docker build --build-arg BUILD_DATE=$(date -u +'%Y-%m-%dT%H:%M:%S') -f Dockerfile-1st .  -t 1st-build 
+```
+
+```bash
+cd lab-5
+docker build --build-arg BUILD_DATE=$(date -u +'%Y-%m-%dT%H:%M:%S')  -t lab-05 .
+```
+
+6. Reduce Final Image Size

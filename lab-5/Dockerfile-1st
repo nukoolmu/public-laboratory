@@ -1,0 +1,13 @@
+FROM busybox
+LABEL application="workshop agrument and environtment"
+
+ARG BUILD_DATE
+LABEL org.label-schema.build-date=$BUILD_DATE
+
+WORKDIR /usr/src
+
+ENV CUSTOM_BUILD_VERSION="1.0.0"
+
+RUN echo "This is 1st build" >/usr/src/1st.txt
+
+ONBUILD RUN echo "This is 2ed build" >/usr/src/2ed.txt
