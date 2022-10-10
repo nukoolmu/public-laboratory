@@ -82,9 +82,23 @@ cd lab-5
 docker build --build-arg BUILD_DATE=$(date -u +'%Y-%m-%dT%H:%M:%S') -f Dockerfile-1st .  -t 1st-build 
 ```
 
+>check the result of build  `docker run -it --rm 1st-build ls /usr/src`
+
+
 ```bash
 cd lab-5
 docker build --build-arg BUILD_DATE=$(date -u +'%Y-%m-%dT%H:%M:%S')  -t lab-05 .
 ```
 
+>check the result of build  `docker run -it --rm lab-05 ls /usr/src`
+
 6. Reduce Final Image Size
+
+```bash
+cd lab-6
+docker build --build-arg BUILD_DATE=$(date -u +'%Y-%m-%dT%H:%M:%S')  -t lab-06 .
+```
+
+>workshop discussion this lab
+
+
