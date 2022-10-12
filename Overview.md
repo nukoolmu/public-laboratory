@@ -6,4 +6,4 @@ Kubernetes is a portable, extensible, open source platform for managing containe
 Going back in time
 Let's take a look at why Kubernetes is so useful by going back in time.
 
-Deployment evolution
+[!Deployment evolution](./images/container_evolution.svg)
