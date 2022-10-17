@@ -36,3 +36,6 @@
     It manages IP translation and routing.
 ### - Container runtime
     The container runtime is the software that is responsible for running containers (in Pods), I.e Docker.
+
+---
+ref. https://medium.com/devops-mojo/kubernetes-architecture-overview-introduction-to-k8s-architecture-and-understanding-k8s-cluster-components-90e11eb34ccd
