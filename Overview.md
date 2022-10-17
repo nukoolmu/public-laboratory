@@ -7,3 +7,12 @@ Going back in time
 Let's take a look at why Kubernetes is so useful by going back in time.
 
 ![Deployment evolution](./images/container_evolution.svg)
+
+## Why you need Kubernetes and what it can do
+
+1. Service discovery and load balancing
+1. Storage orchestration 
+1. Automated rollouts and rollbacks
+1. Automatic bin packing
+1. Self-healing
+1. Secret and configuration management
