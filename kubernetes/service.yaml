@@ -1,0 +1,41 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: be-1
+spec:
+  type: ClusterIP
+  selector:
+    app: be-1 
+  ports:
+  - name: http
+    protocol: TCP
+    port: 80
+    targetPort: 3000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: be-2
+spec:
+  type: ClusterIP
+  selector:
+    app: be-2 
+  ports:
+  - name: http
+    protocol: TCP
+    port: 80
+    targetPort: 3000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ingress
+spec:
+  type: ClusterIP
+  selector:
+    app: ingress
+  ports:
+  - name: http
+    protocol: TCP
+    port: 80
+    targetPort: 80

@@ -20,3 +20,4 @@ for training and workshop
 ```Dockerfile
     docker build --build-arg BUILD_DATE=$(date -u +'%Y-%m-%dT%H:%M:%S') -f Dockerfile-ingress .  -t [Your repository]
 ```
+
