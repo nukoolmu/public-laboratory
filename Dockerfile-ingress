@@ -1,0 +1,11 @@
+FROM  nginx
+LABEL application="workshop create sample api routing"
+
+ARG BUILD_DATE
+LABEL org.label-schema.build-date=$BUILD_DATE
+
+ENV CUSTOM_BUILD_VERSION="1.0.0"
+
+WORKDIR /app/my-app
+
+ADD ./src/ingress/default.conf /etc/nginx/default.conf
