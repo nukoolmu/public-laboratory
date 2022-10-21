@@ -23,3 +23,14 @@ kubernetes มี concept ที่จะเก็บ Data เอาไว้แ
 
 ![workshop-2](../images/workshop-2.drawio.png)
 
+2. จงศึกษาและอธิบายคำสั่งต่อไปนี้
+
+checkout lab
+```bash
+git clone -b sample-app-0 https://github.com/nukoolmu/public-laboratory.git
+```
+
+create kubernetes resource
+```bash
+kubectl apply -f public-laboratory/kubernetes/
+```
