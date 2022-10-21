@@ -8,6 +8,13 @@ spec:
   containers:
     - name: be-1
       image: nukoolm/myexample:app-a
+      volumeMounts:
+        - mountPath: "/usr/share/nginx/html"
+          name: sample-mount
+  volumes:
+    - name: sample-mount
+      persistentVolumeClaim:
+        claimName: pv0001
 ---
 apiVersion: v1
 kind: Pod
@@ -19,7 +26,13 @@ spec:
   containers:
     - name: be-2
       image: nukoolm/myexample:app-b 
-
+      volumeMounts:
+        - mountPath: "/usr/share/nginx/html"
+          name: sample-mount
+  volumes:
+    - name: sample-mount
+      persistentVolumeClaim:
+        claimName: pv0001
 ---
 apiVersion: v1
 kind: Pod
@@ -31,3 +44,10 @@ spec:
   containers:
     - name: ingress
       image: nukoolm/myexample:ingress
+      volumeMounts:
+        - mountPath: "/usr/share/nginx/html"
+          name: sample-mount
+  volumes:
+    - name: sample-mount
+      persistentVolumeClaim:
+        claimName: pv0001
