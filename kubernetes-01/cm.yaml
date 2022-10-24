@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: sample-cm
+data:
+  name: "sample-app"
+  chapter: '"k-101"'
