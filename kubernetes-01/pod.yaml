@@ -11,3 +11,6 @@ spec:
       envFrom:  
       - configMapRef:  
           name: sample-cm
+    command:
+      - sleep
+        3000  
