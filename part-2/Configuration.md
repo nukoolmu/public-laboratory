@@ -23,5 +23,10 @@ git clone -b sample-app-0 https://github.com/nukoolmu/public-laboratory.git
 
 create kubernetes resource
 ```bash
-kubectl apply -f public-laboratory/kubernetes-cm/
+kubectl apply -f public-laboratory/kubernetes-01/
+```
+
+check the result
+```bash
+kubectl exec -it sample-app -- env
 ```
