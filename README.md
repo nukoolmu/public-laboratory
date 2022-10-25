@@ -11,3 +11,5 @@ This Session depend on Docker
 ## Kubernetes 101 Part-II
 1. [Volume](./part-2/storage.md)
 1. [Configuration](./part-2/Configuration.md)
+1. [Resource Management](./part-2/resource.md)
+1. [Security](./part-2/security.md)
