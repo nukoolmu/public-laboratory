@@ -13,3 +13,5 @@ This Session depend on Docker
 1. [Configuration](./part-2/Configuration.md)
 1. [Resource Management](./part-2/resource.md)
 1. [Security](./part-2/security.md)
+1. [Policy](./part-2/policy.md)
+1. [Cronjob](./part-2/cronjob.md)
