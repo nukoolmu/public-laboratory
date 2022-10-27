@@ -2,6 +2,18 @@
 The following table includes short descriptions and the general syntax for all of the kubectl operations:
 
 
+## Syntax
+Use the following syntax to run kubectl commands from your terminal window:
+
+```
+kubectl [command] [TYPE] [NAME] [flags]
+```
+
+>Caution: Flags that you specify from the command line override default values and any corresponding environment variables.
+
+
+
+
 |   |   |   |
 |---|---|---|
 |Operation	|Syntax	|Description|
