@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: app-api
+  namespace: nukoolmu
+spec:
+  containers:
+    - name: myapp
+      image: nukoolm/myexample:app-a
