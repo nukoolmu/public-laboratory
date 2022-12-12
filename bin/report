@@ -1,0 +1,4 @@
+report(){
+    echo "$(date +'%Y%m%d:%H%M')-$$ -- ${1} status - ${2}"
+
+}

@@ -1,0 +1,29 @@
+curl_cmd (){
+    METHOD="$1"
+    HEADER="$2"
+    BODY="$3"
+    HOST="$4"
+    URI="$5"
+    PROTOCAL="$6"
+
+    if [ $PROTOCAL = 'https' ];then
+        INSEC='-k'
+    else
+        INSEC=""
+    fi
+    
+    if [ -z $HEADER ];then
+        HEADER_SIGN=""
+    else   
+        HEADER_SIGN='-H'
+    fi
+        if [ -z $BODY ];then
+        BODY_SIGN=""
+    else   
+        BODY_SIGN='-H'
+    fi
+
+    EXEC_STR=$(echo ${INSEC} -X "$METHOD" "$HEADER_SIGN" "$HEADER" "$BODY_SIGN" "$BODY" "${PROTOCAL}://${HOST}${URI}")
+    
+    curl $EXEC_STR
+}
