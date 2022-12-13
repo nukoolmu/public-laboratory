@@ -1,3 +1,2 @@
-No.,ApiName,Protocal,1st_Host_Port,2ed_Host_Port,URI,Method,Header,Body
-1,Service A,http,127.0.0.1:8080,localhost:8081,/api/a,GET,,
-2,Service B,http,127.0.0.1:8080,localhost:8081,/api/b,POST,,
+﻿No.,ApiName,Protocal,1st_Host_Port,2ed_Host_Port,URI,Method,Header,Body
+1,GetBrandsOfProduct,https,cpc.ais.co.th,cpc.cloud.ais.th,/rest/brand/GetBrandsOfProduct, POST,'Content-Type: application/json','{"location": 1100,"productType": ["DEVICE"],"productSubtype": ["HANDSET", "HANDSET BUNDLE"]}'

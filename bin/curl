@@ -20,10 +20,11 @@ curl_cmd (){
         if [ -z $BODY ];then
         BODY_SIGN=""
     else   
-        BODY_SIGN='-H'
+        BODY_SIGN='-d'
     fi
 
     EXEC_STR=$(echo ${INSEC} -X "$METHOD" "$HEADER_SIGN" "$HEADER" "$BODY_SIGN" "$BODY" "${PROTOCAL}://${HOST}${URI}")
-    
-    curl $EXEC_STR
+    echo $EXEC_STR
+
+    #curl $EXEC_STR
 }

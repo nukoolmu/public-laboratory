@@ -1,1 +1,1 @@
-{"name": "b", "id": 2 }
+-k -X POST -H 'Content-Type: application/json' -d '{"location": 1100,"productType": ["DEVICE"],"productSubtype": ["HANDSET", "HANDSET BUNDLE"]}' https://cpc.ais.co.th/rest/brand/GetBrandsOfProduct
