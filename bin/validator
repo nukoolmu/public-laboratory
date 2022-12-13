@@ -1,0 +1,11 @@
+ck_script_args(){
+    echo "echo args"
+}
+
+ck_process(){
+    echo "check process before" 
+}
+
+ck_outdata(){
+    echo "check output as file"
+}
