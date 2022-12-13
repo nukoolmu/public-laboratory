@@ -3,6 +3,9 @@ kind: Pod
 metadata:
   name: app-api
   namespace: nukoolmu
+  labels:
+    app: app-api
+    developer: nukoolmu
 spec:
   containers:
     - name: myapp
