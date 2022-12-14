@@ -1,7 +1,0 @@
-Report of failure
-======= cpc.ais.co.th ========
-=============================
-{"statusCode":"20000","statusDesc":"Success","location":{"registerCode":null,"dateCreated":"2019-05-15 01:41:44.638","characteristicOrg":null,"subRegion":"N/A","shopTypeGroup":"KIOSK","province":"ชลบุรี","locationCode":"1017174","createdBy":null,"netRegion":"CE","headquarterFlag":"N","dealerCode":"1100000004","publicName":"TG FONE","characteristic":null,"locType":"DL","lastUpdated":"2022-12-14 02:04:56.897","mobileNum":"0805636699","locSubtype":"KAC","vendorCode":"6100000339","shopType":"TG_FONE","businessUnit":"TG Fone","updatedBy":null,"locationName":"ทีจี เซลลูล่าร์เวิลด์ สาขา TG Fone ห้างโลตัส บ้านบึง_Kiosk","region":"CE"}}
-======= cpc.cloud.ais.th ========
-=============================
-{"statusCode":"20000","statusDesc":"success","location":{"locType":"DL","locSubtype":"KAC","characteristic":null,"businessUnit":"TG Fone","dealerCode":"1100000004","region":"CE","subRegion":"N/A","headquarterFlag":"N","registerCode":null,"vendorCode":"6100000339","mobileNum":"0805636699","characteristicOrg":null,"netRegion":"CE","province":"ชลบุรี","shopType":"TG_FONE","shopTypeGroup":"KIOSK","publicName":"TG FONE","lastUpdated":"2022-12-14 02:16:46.480","locationCode":"1017174","updatedBy":null,"dateCreated":"2022-12-14 02:16:46.480","locationName":"ทีจี เซลลูล่าร์เวิลด์ สาขา TG Fone ห้างโลตัส บ้านบึง_Kiosk","createdBy":null}}

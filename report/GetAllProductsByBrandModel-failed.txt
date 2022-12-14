@@ -1,7 +1,0 @@
-Report of failure
-======= cpc.ais.co.th ========
-=============================
-{"totalRow":100.0,"statusDesc":"success","offset":1,"countRow":1.0,"maxRow":1,"statusCode":"20000","products":[{"brand":"APPLE","name":"iPhone XS Max","model":null,"imageUrl":"https://cpc.ais.co.th/CPC-FE-WEB/api/contents/download/media/catalog/product/i/p/iphonexsmax-gold-pureangles-1_3.jpg?size=l","itemType":"NORMAL","flag5G":"N","dv":[],"productType":"DEVICE","productSubtype":"HANDSET","normalPrice":{"min":"30900","max":"30900"},"promotionPrice":{"min":"30900","max":"30900"},"subProducts":[{"name":"iPhone XS Max (256GB)","model":"IPHONEXSM256","imageUrl":"N/A","normalPrice":{"min":"30900","max":"30900"},"promotionPrice":{"min":"30900","max":"30900"}}]}]}
-======= cpc.cloud.ais.th ========
-=============================
-{"statusCode":"20000","statusDesc":"success","countRow":1,"totalRow":1,"products":[{"brand":"APPLE","name":"iPhone XS Max","model":null,"imageUrl":"https://cpc.ais.co.th/CPC-FE-WEB/api/contents/download/media/catalog/product/i/p/iphonexsmax-gold-pureangles-1_3.jpg?size=l","itemType":null,"flag5G":"N","dv":[],"productType":"DEVICE","productSubtype":"HANDSET","normalPrice":{"min":"30900","max":"30900"},"promotionPrice":{"min":"30900","max":"30900"},"subProducts":[{"name":"iPhone XS Max (256GB)","model":"IPHONEXSM256","imageUrl":"N/A","normalPrice":{"min":"30900","max":"30900"},"promotionPrice":{"min":"30900","max":"30900"}}]}]}
