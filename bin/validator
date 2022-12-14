@@ -9,3 +9,18 @@ ck_process(){
 ck_outdata(){
     echo "check output as file"
 }
+
+ck_header(){
+    if [ -n "$HEADER" ];then
+		HEADER_export=$(echo $HEADER|sed -e "s|' |' --header |g")
+		EXEC_HEADER="--header $HEADER_export"
+    fi
+
+
+}
+
+ck_body(){
+    if [ -n "$BODY" ];then
+        EXEC_BODY="--data $BODY"
+    fi
+}

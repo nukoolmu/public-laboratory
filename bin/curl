@@ -12,15 +12,11 @@ curl_cmd (){
         INSEC=""
     fi
     
-    if [ -n "$HEADER" ];then
-		HEADER_export=$(echo $HEADER|sed -e "s|' |' --header |g")
-		HEADER="--header $HEADER_export"
-    fi
+    ck_header
 
-    if [ -n "$BODY" ];then
-        BODY="--data $BODY"
-    fi
+    ck_body
 
-    EXEC_CMD=$(echo curl "${INSEC} -X $METHOD  ${PROTOCAL}://${HOST}${URI} $HEADER $BODY_SIGN $BODY")
+    EXEC_CMD=$(echo curl "${INSEC} -X $METHOD  ${PROTOCAL}://${HOST}${URI} $EXEC_HEADER $EXEC_BODY")
     eval $EXEC_CMD
+
 }
