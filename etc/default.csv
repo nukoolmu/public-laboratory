@@ -1,2 +1,3 @@
 ﻿No.,ApiName,Protocal,1st_Host_Port,2ed_Host_Port,URI,Method,Header,Body
-1,GetBrandsOfProduct,https,cpc.ais.co.th,cpc.cloud.ais.th,/rest/brand/GetBrandsOfProduct, POST,'Content-Type: application/json','{"location": 1100,"productType": ["DEVICE"],"productSubtype": ["HANDSET", "HANDSET BUNDLE"]}'
+1,GetBrandsOfProduct,https,cpc.ais.co.th,cpc.cloud.ais.th,/rest/brand/GetBrandsOfProduct,POST,'Content-Type: application/json','{"location": 1100,"productType": ["DEVICE"],"productSubtype": ["HANDSET", "HANDSET BUNDLE"]}'
+2,getAspBanks,https,cpc.ais.co.th,cpc.cloud.ais.th,/CPC-MyChannelFE-WEB/rest/bank/getAspBanks,POST,'Content-Type: application/json','{"location": "97439"}' 

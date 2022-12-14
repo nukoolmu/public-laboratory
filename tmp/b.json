@@ -1,1 +1,1 @@
--k -X POST -H 'Content-Type: application/json' -d '{"location": 1100,"productType": ["DEVICE"],"productSubtype": ["HANDSET", "HANDSET BUNDLE"]}' https://cpc.cloud.ais.th/rest/brand/GetBrandsOfProduct
+{"statusCode":"20000","statusDesc":"success","banks":[]}
