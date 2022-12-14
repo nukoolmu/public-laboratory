@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: app-api
+  name: nukool-api
   namespace: nukoolmu
   labels:
     app: app-api
@@ -9,4 +9,4 @@ metadata:
 spec:
   containers:
     - name: myapp
-      image: nukoolm/myexample:app-a
+      image: nukoolm/myexample:app-c

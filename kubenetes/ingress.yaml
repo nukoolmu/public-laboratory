@@ -6,13 +6,30 @@ metadata:
     kubernetes.io/ingress.class: nginx
 spec:
   rules:
-  - host: "nukoolmu.publab.com"
+  - host: "new-hackathon.publab.com"
     http:
       paths:
+
       - pathType: Prefix
-        path: "/be-1"
+        path: "/nukoolmu"
         backend:
           service:
             name: my-service
+            port:
+              number: 80
+
+      - pathType: Prefix
+        path: "/piyapan"
+        backend:
+          service:
+            name: svc-piyapan
+            port:
+              number: 80
+              
+      - pathType: Prefix
+        path: "/piyapan"
+        backend:
+          service:
+            name: svc-piyapan
             port:
               number: 80
