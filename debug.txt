@@ -1,0 +1,25 @@
+
+  888888  .d8888b.   .d8888b.  
+    "88b d88P  Y88b d88P  Y88b 
+     888        888 888    888 
+     888      .d88P 888        
+     888  .od888P"  888        
+     888 d88P"      888    888 
+     88P 888"       Y88b  d88P 
+     888 888888888   "Y8888P"  
+   .d88P                       
+ .d88P"                        
+888P"                          
+    
+Json Response Compare via Curl...
+
+20221214:0902-7749 -- GetBrandsOfProduct status - false
+20221214:0902-7749 -- getAspBanks status - false
+20221214:0902-7749 -- GetBanksPromotion status - true
+20221214:0902-7749 -- GetProductDetail status - false
+20221214:0902-7749 -- GetAllProduct status - false
+20221214:0902-7749 -- getLocation status - false
+20221214:0902-7749 -- GetAllProductsByBrandModel status - false
+20221214:0902-7749 -- getInstallmentsForPartner status - false
+
+Done!

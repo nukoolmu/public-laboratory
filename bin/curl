@@ -18,5 +18,4 @@ curl_cmd (){
 
     EXEC_CMD=$(echo curl "${INSEC} -X $METHOD  ${PROTOCAL}://${HOST}${URI} $EXEC_HEADER $EXEC_BODY")
     eval $EXEC_CMD
-
 }

@@ -10,7 +10,7 @@ ck_process(){
 
 ck_outdata(){
        RESULT=${1}
-    if [ $RESULT == "false" ];then
+    if [ "$RESULT" == "false" ];then
         echo "Report of failure" > ${REPORT_PATH}/${API_NAME}-failed.txt
         echo "======= ${ORIGIN_1} ========" >> ${REPORT_PATH}/${API_NAME}-failed.txt
         echo '=============================' >> ${REPORT_PATH}/${API_NAME}-failed.txt

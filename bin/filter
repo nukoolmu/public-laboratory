@@ -7,7 +7,7 @@ filter(){
         curl_cmd "$METHOD" "$HEADER" "$BODY" "${ORIGIN_1}" "${URI}" "${PROTOCAL}" > $TMP_PATH/a.json 2>/dev/null
         curl_cmd "$METHOD" "$HEADER" "$BODY" "${ORIGIN_2}" "${URI}" "${PROTOCAL}" > $TMP_PATH/b.json 2>/dev/null
         
-        jq_compare
+        jq_compare 2>/dev/null
 
     done
 }
