@@ -8,6 +8,7 @@ PROCESS_ID="$$"
 
 CONF_PATH=${SCRIPT_HOME}/etc
 TMP_PATH=${SCRIPT_HOME}/tmp
+REPORT_PATH=${SCRIPT_HOME}/report
 
 # Include all functions
 

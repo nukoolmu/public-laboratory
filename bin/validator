@@ -3,7 +3,17 @@ ck_script_args(){
 }
 
 ck_process(){
-    echo "check process before" 
+    RESULT=${1}
+    if [ $RESULT == "false" ];then
+        echo "Report of failure" > ${REPORT_PATH}/${API_NAME}-failed.txt
+        echo "======= ${ORIGIN_1} ========" >> ${REPORT_PATH}/${API_NAME}-failed.txt
+        echo '=============================' >> ${REPORT_PATH}/${API_NAME}-failed.txt
+        cat ${TMP_PATH}/a.json >> ${REPORT_PATH}/${API_NAME}-failed.txt
+        echo "======= ${ORIGIN_2} ========" >> ${REPORT_PATH}/${API_NAME}-failed.txt
+        echo '=============================' >> ${REPORT_PATH}/${API_NAME}-failed.txt
+        cat ${TMP_PATH}/b.json >> ${REPORT_PATH}/${API_NAME}-failed.txt
+    fi
+
 }
 
 ck_outdata(){
