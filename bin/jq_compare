@@ -1,6 +1,11 @@
 jq_compare(){
    RESULT=$(jq --argfile a ${TMP_PATH}/a.json --argfile b ${TMP_PATH}/b.json -n '($a | (.. | arrays) |= sort) as $a | ($b | (.. | arrays) |= sort) as $b | $a == $b')
 
+   
+    if [ $? -ne 0 ];then
+        RESULT=false
+    fi
+
    report "${API_NAME}" "${RESULT}"
-   ck_process "${RESULT}"
+   ck_outdata "${RESULT}"
 }

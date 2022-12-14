@@ -3,21 +3,24 @@ ck_script_args(){
 }
 
 ck_process(){
-    RESULT=${1}
+    if [ $EXEC_PROC -ne 0 ];then
+        RESULT=false
+    fi
+}
+
+ck_outdata(){
+       RESULT=${1}
     if [ $RESULT == "false" ];then
         echo "Report of failure" > ${REPORT_PATH}/${API_NAME}-failed.txt
         echo "======= ${ORIGIN_1} ========" >> ${REPORT_PATH}/${API_NAME}-failed.txt
         echo '=============================' >> ${REPORT_PATH}/${API_NAME}-failed.txt
         cat ${TMP_PATH}/a.json >> ${REPORT_PATH}/${API_NAME}-failed.txt
+        echo ""  >> ${REPORT_PATH}/${API_NAME}-failed.txt
         echo "======= ${ORIGIN_2} ========" >> ${REPORT_PATH}/${API_NAME}-failed.txt
         echo '=============================' >> ${REPORT_PATH}/${API_NAME}-failed.txt
         cat ${TMP_PATH}/b.json >> ${REPORT_PATH}/${API_NAME}-failed.txt
     fi
 
-}
-
-ck_outdata(){
-    echo "check output as file"
 }
 
 ck_header(){
