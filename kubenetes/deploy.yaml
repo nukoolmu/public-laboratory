@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: myapi
+  namespace: nukoolmu
+  labels:
+    app: myapi
+spec:
+  selector:
+    matchLabels:
+      app: myapi
+      developer: nukoolmu
+  replicas: 2
+  strategy:
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: myapi
+        developer: nukoolmu
+    spec:
+      containers:
+        - name: myapp
+          image: nukoolm/myexample:app-c
