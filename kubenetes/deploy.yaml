@@ -10,7 +10,7 @@ spec:
     matchLabels:
       app: myapi
       developer: nukoolmu
-  replicas: 2
+  replicas: 1
   strategy:
     type: RollingUpdate
   template:
@@ -22,3 +22,10 @@ spec:
       containers:
         - name: myapp
           image: nukoolm/myexample:app-c
+          resources:
+            limits:
+              memory: "512Mi"
+              cpu: "500m"
+            requests:
+              memory: "256Mi"
+              cpu: "250m"
