@@ -1,0 +1,8 @@
+name: myapp
+image: nginx
+labels:
+  name: myap
+  dev: nukoolmu
+  timestamp: feb
+app:
+  port: Disable
