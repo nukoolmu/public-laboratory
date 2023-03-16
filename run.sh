@@ -10,6 +10,7 @@ CONF_PATH=${SCRIPT_HOME}/etc
 TMP_PATH=${SCRIPT_HOME}/tmp
 REPORT_PATH=${SCRIPT_HOME}/report
 INC_PATH=${SCRIPT_HOME}/inc
+SRC_PATH=${SCRIPT_HOME}/src
 # Include all functions
 
 for ifunc in $(find ${SCRIPT_HOME}/bin/  -type f) ;do
