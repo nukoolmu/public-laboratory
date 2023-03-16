@@ -1,0 +1,1 @@
+{"statusCode":"20000","statusDesc":"Success","data":{"statusDesc":{"info":{"name":"ERROR","handlerName":"onErrorMessage","number":208,"state":1,"class":16,"message":"Invalid object name 'PROD_CPC.ITEM_ZONE'.","serverName":"sql-cpc-az-asse-prd-001","procName":"","lineNumber":1}}}}
