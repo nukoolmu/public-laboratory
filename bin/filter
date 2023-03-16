@@ -12,8 +12,8 @@ filter(){
         . ${INC_PATH}/${API_NAME}
 
         # call function sort file
-        ${API_NAME} "${SRC_PATH}/${API_NAME}_CLOUD" > ${TMP_PATH}/${API_NAME}_CLOUD.sort
-        ${API_NAME} "${SRC_PATH}/${API_NAME}_PREM" > ${TMP_PATH}/${API_NAME}_PREM.sort
+        ${API_NAME} "${SRC_PATH}/${API_NAME}_CLOUD.json" > ${TMP_PATH}/${API_NAME}_CLOUD.sort
+        ${API_NAME} "${SRC_PATH}/${API_NAME}_PREM.json" > ${TMP_PATH}/${API_NAME}_PREM.sort
 
         jq_compare   "${TMP_PATH}/${API_NAME}_CLOUD.sort"  "${TMP_PATH}/${API_NAME}_PREM.sort"   2>/dev/null
 

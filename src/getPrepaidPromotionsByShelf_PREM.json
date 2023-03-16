@@ -1,0 +1,1 @@
+{"statusCode":"5000","statusDesc":"Unexpect Error: No signature of method: th.co.ais.common.catalog.api.PromotionCodeService.checkChargeTypePrePaid() is applicable for argument types: (java.util.ArrayList) values: [[]]"}
