@@ -3,19 +3,21 @@ jq_compare(){
   FILE_A=${1}
   FILE_B=${2}
 
-   if [ -z "$(cat ${TMP_PATH}/${FILE_A})" ] || [ -z "$(cat ${TMP_PATH}/${FILE_B})" ];then
+   if [ -z "$(cat ${FILE_A})" ] || [ -z "$(cat ${FILE_B})" ];then
      RESULT=false
    else
      #RESULT=$(jq --argfile a ${TMP_PATH}/${FILE_A} --argfile b ${TMP_PATH}/${FILE_B} '($a | (.. | arrays) |= sort) as $a | ($b | (.. | arrays) |= sort) as $b | $a == $b') 
-    RESULT=$(git diff --no-index ${TMP_PATH}/${FILE_A} ${TMP_PATH}/${FILE_B} )
-
-   fi
-   
+    diff ${FILE_A} ${FILE_B}
+    
     if [ $? -ne 0 ];then
         RESULT=false
     else
         RESULT=true
     fi
+
+   fi
+   
+
 
    report "${API_NAME}" "${RESULT}"
    ck_outdata "${RESULT}"
