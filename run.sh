@@ -9,7 +9,7 @@ PROCESS_ID="$$"
 CONF_PATH=${SCRIPT_HOME}/etc
 TMP_PATH=${SCRIPT_HOME}/tmp
 REPORT_PATH=${SCRIPT_HOME}/report
-
+INC_PATH=${SCRIPT_HOME}/inc
 # Include all functions
 
 for ifunc in $(find ${SCRIPT_HOME}/bin/  -type f) ;do

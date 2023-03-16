@@ -1,0 +1,6 @@
+GetAllPromotionByShelf(){
+    SRC_FILE=${1}
+
+    jq '[.data[] | {id: .id, title: .title, titleEn: .titleEn, icon: .icon, sanitizedName: .sanitizedName,publish: .publish, priority: .priority, lastUpdated: .lastUpdated, tags: .tags, type: .type, conditionCode: .conditionCode, subShelves: .subShelves, items: .items}] | sort_by(.id)' ${SRC_FILE} > ${TMP_PATH}/${SRC_FILE}
+    
+}

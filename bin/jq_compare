@@ -1,9 +1,12 @@
 jq_compare(){
 
-   if [ -z "$(cat ${TMP_PATH}/a.json)" ] || [ -z "$(cat ${TMP_PATH}/b.json)" ];then
+  FILE_A=${1}
+  FILE_B=${2}
+
+   if [ -z "$(cat ${TMP_PATH}/${FILE_A})" ] || [ -z "$(cat ${TMP_PATH}/${FILE_B})" ];then
      RESULT=false
    else
-     RESULT=$(jq --argfile a ${TMP_PATH}/a.json --argfile b ${TMP_PATH}/b.json -n '($a | (.. | arrays) |= sort) as $a | ($b | (.. | arrays) |= sort) as $b | $a == $b') 
+     RESULT=$(jq --argfile a ${TMP_PATH}/${FILE_A} --argfile b ${TMP_PATH}/${FILE_B} '($a | (.. | arrays) |= sort) as $a | ($b | (.. | arrays) |= sort) as $b | $a == $b') 
    fi
    
     if [ $? -ne 0 ];then
