@@ -8,11 +8,12 @@ filter(){
             #curl_cmd "$METHOD" "$HEADER" "$BODY" "${ORIGIN_1}" "${URI}" "${PROTOCAL}" > $TMP_PATH/a.json 2>/dev/null
             #curl_cmd "$METHOD" "$HEADER" "$BODY" "${ORIGIN_2}" "${URI}" "${PROTOCAL}" > $TMP_PATH/b.json 2>/dev/null
         # sorting file
+
         . ${INC_PATH}/${API_NAME}
 
         # call function sort file
-        ${API_NAME} a.json > ${TMP_PATH}/${API_NAME}_az.sort
-        ${API_NAME} b.json > ${TMP_PATH}/${API_NAME}_prem.sort
+        ${API_NAME} "a.json" > ${TMP_PATH}/${API_NAME}_az.sort
+        ${API_NAME} "b.json" > ${TMP_PATH}/${API_NAME}_prem.sort
 
         jq_compare   "${TMP_PATH}/${API_NAME}_az.sort"  "${TMP_PATH}/${API_NAME}_prem.sort"   2>/dev/null
 

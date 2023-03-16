@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1262768,
+    "title": "แพ็กเกจ U-ZEED 599 บาท",
+    "titleEn": null,
+    "icon": null,
+    "sanitizedName": null,
+    "publish": false,
+    "priority": null,
+    "lastUpdated": 1678908258158,
+    "tags": null,
+    "type": null,
+    "conditionCode": null,
+    "subShelves": null,
+    "items": null
+  },
+  {
+    "id": 1301699,
+    "title": "AIS 5G One Plan for iPhone 2999 บาท",
+    "titleEn": null,
+    "icon": null,
+    "sanitizedName": null,
+    "publish": true,
+    "priority": null,
+    "lastUpdated": 1678908247678,
+    "tags": null,
+    "type": null,
+    "conditionCode": null,
+    "subShelves": null,
+    "items": null
+  }
+]

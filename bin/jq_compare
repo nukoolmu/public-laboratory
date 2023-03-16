@@ -6,11 +6,15 @@ jq_compare(){
    if [ -z "$(cat ${TMP_PATH}/${FILE_A})" ] || [ -z "$(cat ${TMP_PATH}/${FILE_B})" ];then
      RESULT=false
    else
-     RESULT=$(jq --argfile a ${TMP_PATH}/${FILE_A} --argfile b ${TMP_PATH}/${FILE_B} '($a | (.. | arrays) |= sort) as $a | ($b | (.. | arrays) |= sort) as $b | $a == $b') 
+     #RESULT=$(jq --argfile a ${TMP_PATH}/${FILE_A} --argfile b ${TMP_PATH}/${FILE_B} '($a | (.. | arrays) |= sort) as $a | ($b | (.. | arrays) |= sort) as $b | $a == $b') 
+    RESULT=$(git diff --no-index ${TMP_PATH}/${FILE_A} ${TMP_PATH}/${FILE_B} )
+
    fi
    
     if [ $? -ne 0 ];then
         RESULT=false
+    else
+        RESULT=true
     fi
 
    report "${API_NAME}" "${RESULT}"
