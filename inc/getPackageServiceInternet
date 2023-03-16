@@ -1,0 +1,11 @@
+getPackageServiceInternet(){
+    SRC_FILE=${1}
+
+    if [ -f ${SRC_FILE} ];then
+
+    jq '[.data[] | {billCycleValue: .billCycleValue, durationFrom: .durationFrom, durationTo: .durationTo, durationUnit: .durationUnit, internetQuota: .internetQuota,internetQuotaBlockBit: .internetQuotaBlockBit, internetQuotaFromTiming: .internetQuotaFromTiming, internetQuotaNetworkCoverage: .internetQuotaNetworkCoverage, internetQuotaNextG: .internetQuotaNextG, internetQuotaRollOver: .internetQuotaRollOver, internetQuotaToTiming: .internetQuotaToTiming, internetQuotaType: .internetQuotaType, internetQuotaUnit: .internetQuotaUnit, internetSpeed: .internetSpeed, internetUsageType: .internetUsageType}]' ${SRC_FILE} 
+    
+    else
+        echo "no src file exist"
+    fi
+}

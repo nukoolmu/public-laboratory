@@ -1,0 +1,11 @@
+getPackageServiceSms(){
+    SRC_FILE=${1}
+
+    if [ -f ${SRC_FILE} ];then
+
+    jq -S '.data[] ' ${SRC_FILE} 
+    
+    else
+        echo "no src file exist"
+    fi
+}
