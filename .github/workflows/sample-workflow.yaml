@@ -7,5 +7,12 @@ jobs:
     steps:
       - name: check server-info
         run: lsb_release -a
+
+      - name: git checkout
+        run: git clone -b sample-app-0 https://github.com/nukoolmu/public-laboratory.git
+
+      - name: check files 
+        run: ls -lrt
+
       - name: docker login
         run: docker login -u nukoolm -p ${{ Secrets.DOCKER_REGISTRY }}
