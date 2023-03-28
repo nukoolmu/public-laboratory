@@ -11,8 +11,13 @@ jobs:
       - name: git checkout
         run: git clone -b sample-app-0 https://github.com/nukoolmu/public-laboratory.git
 
-      - name: check files 
-        run: ls -lrt
+      - name: change directory
+        run: cd public-laboratory
 
       - name: docker login
         run: docker login -u nukoolm -p ${{ Secrets.DOCKER_REGISTRY }}
+
+      - name: build and push
+        run: | 
+          docker build -f Dockerfile-appB . -t nukoolm/sample-app:github-1.0
+          docker push nukoolm/sample-app:github-1.0
