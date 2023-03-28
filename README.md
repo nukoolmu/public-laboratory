@@ -36,7 +36,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: check server-info
-        run: lsb-relases -a
+        run: lsb_release -a
       - name: display wording
         run: echo hello ${{ github.actor }}
 
