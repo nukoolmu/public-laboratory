@@ -8,4 +8,4 @@ jobs:
       - name: check server-info
         run: lsb_release -a
       - name: docker login
-        run: docker login -u nukoolm -p ${{ secert.docker_registry }}
+        run: docker login -u nukoolm -p ${{ Secerts.DOCKER_REGISTRY }}
