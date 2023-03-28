@@ -12,7 +12,9 @@ jobs:
         run: git clone -b sample-app-0 https://github.com/nukoolmu/public-laboratory.git
 
       - name: change directory
-        run: cd public-laboratory
+        run: | 
+          cd public-laboratory
+          ls -lrt
 
       - name: docker login
         run: docker login -u nukoolm -p ${{ Secrets.DOCKER_REGISTRY }}
