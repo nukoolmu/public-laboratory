@@ -2,16 +2,10 @@ name: example-flow
 run-name: ${{ github.actor }} is learning GitHub Actions
 on: [push]
 jobs:
-  check-bats-version:
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: check server-info
         run: lsb_release -a
-      - name: display wording
-        run: echo hello ${{ github.actor }}
-  check-wins-version:
-    runs-on: windows-latest
-    steps:
-      - name: check server-info
-        run: ver
-        shell: cmd
+      - name: docker login
+        run: docker login -u nukoolm -p ${{ secert.docker_registry }}
