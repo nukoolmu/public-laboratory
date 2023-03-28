@@ -15,6 +15,9 @@ jobs:
         run: docker login -u nukoolm -p ${{ Secrets.DOCKER_REGISTRY }}
 
       - name: build and push
-        run: | 
+        run: |
+          cd public-laboratory 
+          ls -lrt
+
           docker build -f Dockerfile-appB . -t nukoolm/sample-app:github-1.0
           docker push nukoolm/sample-app:github-1.0
