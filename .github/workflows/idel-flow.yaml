@@ -1,0 +1,58 @@
+name: example-flow
+run-name: ${{ github.actor }} is learning GitHub Actions
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'input your software version'
+        required: true
+        default: '1.0.0'
+        type: string
+#  push: 
+#   branches: [github-action-1]
+
+jobs:
+  prepare:
+    if: github.event.inputs.tag == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - name: check software version
+        run: echo Software version is ${{ github.event.inputs.tag }}
+
+  build:
+    if: github.event_name == 'push'
+    runs-on: ubuntu-latest
+    steps:
+      - name: check server-info
+        run: lsb_release -a
+
+      - name: git checkout
+        run: git clone -b sample-app-0 https://github.com/nukoolmu/public-laboratory.git
+
+      - name: docker login
+        run: docker login -u nukoolm -p ${{ Secrets.DOCKER_REGISTRY }}
+
+      - name: build and push
+        run: |
+          cd public-laboratory 
+
+          docker build -f Dockerfile-appB . -t nukoolm/sample-app:github-1.0
+          docker push nukoolm/sample-app:github-1.0
+
+  approvals:
+    runs-on: ubuntu-latest    
+    steps:
+      - name: wait for Approve    
+        uses: trstringer/manual-approval@v1
+        id: check-approval
+        with:
+          secret: ${{ github.TOKEN }}
+          approvers: "nukoolmu, samah603"
+          minimum-approvals: 1
+
+  deploy:
+    needs: approvals
+    runs-on: ubuntu-latest
+    steps:
+      - name: mockup deployed
+        run: echo Deploying ${{ github.event.inputs.version }}
