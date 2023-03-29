@@ -52,7 +52,7 @@ jobs:
           docker push nukoolm/sample-app:github-1.0
 
   deploy:
-    if: github.event.inputs.inputs.tag == "*"
+    if: github.event.inputs.inputs.tag == "v*"
     runs-on: ubuntu-latest
     steps:
       - name: mockup deployed
