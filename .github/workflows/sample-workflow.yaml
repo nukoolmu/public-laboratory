@@ -45,6 +45,7 @@ jobs:
 
   deploy:
     needs: approvals
+    if: github.event.inputs.tag == 'true'
     runs-on: ubuntu-latest
     steps:
       - name: mockup deployed
