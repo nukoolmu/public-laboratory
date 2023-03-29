@@ -2,9 +2,15 @@ name: example-flow
 run-name: ${{ github.actor }} is learning GitHub Actions
 on: [push]
 jobs:
+
   build:
     runs-on: ubuntu-latest
     steps:
+      - uses: trstringer/manual-approval@v1
+        with:
+          secret: ${{ github.TOKEN }}
+          approvers: nukoolmu,samah603
+
       - name: check server-info
         run: lsb_release -a
 
