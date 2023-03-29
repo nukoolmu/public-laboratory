@@ -14,10 +14,11 @@ jobs:
       - name: docker login
         run: docker login -u nukoolm -p ${{ Secrets.DOCKER_REGISTRY }}
 
-      - name: Check if pull request has been approved
-        uses: fjogeleit/check-pull-request-approved-action@v1
+      - name: wait for Approve    
+        uses: trstringer/manual-approval@v1
         id: check-approval
         with:
+          secret: ${{ github.TOKEN }}
           approvers: "nukoolmu, samah603"
 
       - name: Trigger workflow
@@ -32,7 +33,7 @@ jobs:
               }
             });
             const response = await octokit
-            
+
       - name: build and push
         run: |
           cd public-laboratory 
