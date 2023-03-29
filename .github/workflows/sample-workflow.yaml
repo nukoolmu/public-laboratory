@@ -2,9 +2,9 @@ name: example-flow
 run-name: ${{ github.actor }} is learning GitHub Actions
 on:
   inputs:
-      tag:
-        description: 'input workflow run number'
-        required: true
+    tag:
+      description: 'input workflow run number'
+      required: true
   push: 
    branches: [github-action-1]
 
