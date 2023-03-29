@@ -12,6 +12,13 @@ on:
    branches: [github-action-1]
 
 jobs:
+  prepare:
+    if: github.event.inputs.tag == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - name: check software version
+        run: echo Software version is ${{ github.event.inputs.tag }}
+        
   build:
     if: github.event_name == 'push'
     runs-on: ubuntu-latest
@@ -45,7 +52,6 @@ jobs:
 
   deploy:
     needs: approvals
-    if: github.event.inputs.tag == 'true'
     runs-on: ubuntu-latest
     steps:
       - name: mockup deployed
