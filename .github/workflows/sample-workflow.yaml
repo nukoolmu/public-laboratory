@@ -1,7 +1,16 @@
 name: example-flow
 run-name: ${{ github.actor }} is learning GitHub Actions
-on: [push]
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'input workflow run number'
+        required: true
+
+  push: [sample-app-0]
+
 jobs:
+
   build:
     runs-on: ubuntu-latest
     steps:
@@ -22,18 +31,18 @@ jobs:
           approvers: "nukoolmu, samah603"
           minimum-approvals: 1
 
-      - name: Trigger workflow
-        if: steps.check-approval.outputs.approved == 'true'
-        uses: actions/github-script@v5
-        with:
-          script: |
-            const payload = JSON.stringify({
-              ref: context.ref,
-              inputs: {
-                my_input: 'my_value'
-              }
-            });
-            const response = await octokit
+#      - name: Trigger workflow
+#        if: steps.check-approval.outputs.approved == 'true'
+#        uses: actions/github-script@v5
+#        with:
+#          script: |
+#            const payload = JSON.stringify({
+#              ref: context.ref,
+#              inputs: {
+#                my_input: 'my_value'
+#              }
+#            });
+#            const response = await octokit
 
       - name: build and push
         run: |
@@ -41,3 +50,10 @@ jobs:
 
           docker build -f Dockerfile-appB . -t nukoolm/sample-app:github-1.0
           docker push nukoolm/sample-app:github-1.0
+
+    deploy:
+    if: workflow_dispatch.inputs.tag == "*"
+    runs-on: ubuntu-latest
+    steps:
+      - name: mockup deployed
+        run: echo Deploying
