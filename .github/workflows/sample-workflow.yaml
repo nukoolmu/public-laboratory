@@ -43,8 +43,8 @@ jobs:
           minimum-approvals: 1
 
   deploy:
-    runs-on: ubuntu-latest
     needs: approvals
+    runs-on: ubuntu-latest
 
       - name: mockup deployed
         run: echo Deploying ${{ github.event.inputs.tag }}
