@@ -2,11 +2,6 @@ name: example-flow
 run-name: ${{ github.actor }} is learning GitHub Actions
 on: [push]
 jobs:
-
-  approvals:
-    review:
-        required: 1
-
   build:
     runs-on: ubuntu-latest
     steps:
@@ -19,10 +14,28 @@ jobs:
       - name: docker login
         run: docker login -u nukoolm -p ${{ Secrets.DOCKER_REGISTRY }}
 
+      - name: Check if pull request has been approved
+        uses: fjogeleit/check-pull-request-approved-action@v1
+        id: check-approval
+        with:
+          approvers: "nukoolmu, samah603"
+
+      - name: Trigger workflow
+        if: steps.check-approval.outputs.approved == 'true'
+        uses: actions/github-script@v5
+        with:
+          script: |
+            const payload = JSON.stringify({
+              ref: context.ref,
+              inputs: {
+                my_input: 'my_value'
+              }
+            });
+            const response = await octokit
+            
       - name: build and push
         run: |
           cd public-laboratory 
-          ls -lrt
 
           docker build -f Dockerfile-appB . -t nukoolm/sample-app:github-1.0
           docker push nukoolm/sample-app:github-1.0
