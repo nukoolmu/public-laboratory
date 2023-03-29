@@ -1,7 +1,7 @@
 name: example-flow
 run-name: ${{ github.actor }} is learning GitHub Actions
 on:
-  workflow_call:
+  workflow_dispatch:
     inputs:
       tag:
         description: 'input your software version'
