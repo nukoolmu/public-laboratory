@@ -6,11 +6,26 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: trstringer/manual-approval@v1
+      - name: Request approval
+        uses: actions/github-script@v4
         with:
-          secret: ${{ github.TOKEN }}
-          approvers: nukoolmu,samah603
-
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const approvers = ['nukoolmu', 'samah603'];
+            const reviewRequested = approvers.some(approver => {
+              return context.payload.pull_request.requested_reviewers.some(review => {
+                return review.login === approver;
+              });
+            });
+            if (!reviewRequested) {
+              await github.pulls.createReviewRequest({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                pull_number: context.payload.pull_request.number,
+                reviewers: [approvers[Math.floor(Math.random() * approvers.length)]]
+              });
+            }
+            
       - name: check server-info
         run: lsb_release -a
 
