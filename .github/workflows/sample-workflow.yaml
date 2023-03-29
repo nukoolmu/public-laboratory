@@ -12,6 +12,7 @@ on:
 jobs:
 
   build:
+    if: github.event_name == 'push'
     runs-on: ubuntu-latest
     steps:
       - name: check server-info
@@ -23,6 +24,16 @@ jobs:
       - name: docker login
         run: docker login -u nukoolm -p ${{ Secrets.DOCKER_REGISTRY }}
 
+      - name: build and push
+        run: |
+          cd public-laboratory 
+
+          docker build -f Dockerfile-appB . -t nukoolm/sample-app:github-1.0
+          docker push nukoolm/sample-app:github-1.0
+
+  approvals:
+    runs-on: ubuntu-latest    
+    steps:
       - name: wait for Approve    
         uses: trstringer/manual-approval@v1
         id: check-approval
@@ -31,29 +42,9 @@ jobs:
           approvers: "nukoolmu, samah603"
           minimum-approvals: 1
 
-#      - name: Trigger workflow
-#        if: steps.check-approval.outputs.approved == 'true'
-#        uses: actions/github-script@v5
-#        with:
-#          script: |
-#            const payload = JSON.stringify({
-#              ref: context.ref,
-#              inputs: {
-#                my_input: 'my_value'
-#              }
-#            });
-#            const response = await octokit
-
-      - name: build and push
-        run: |
-          cd public-laboratory 
-
-          docker build -f Dockerfile-appB . -t nukoolm/sample-app:github-1.0
-          docker push nukoolm/sample-app:github-1.0
-
   deploy:
-    if: github.event_name == 'push'
     runs-on: ubuntu-latest
-    steps:
+    needs: approvals
+
       - name: mockup deployed
-        run: echo Deploying
+        run: echo Deploying ${{ github.event.inputs.tag }}
