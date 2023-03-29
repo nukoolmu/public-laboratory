@@ -7,7 +7,7 @@ on:
         description: 'input workflow run number'
         required: true
   push: 
-   branches: [sample-app-0]
+   branches: [github-action-1]
 
 jobs:
 
