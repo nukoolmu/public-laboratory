@@ -1,10 +1,13 @@
 name: example-flow
 run-name: ${{ github.actor }} is learning GitHub Actions
 on:
-  inputs:
-    tag:
-      description: 'input workflow run number'
-      required: true
+  workflow_call:
+    inputs:
+      tag:
+        description: 'input your software version'
+        required: true
+        default: '1.0.0'
+        type: string
   push: 
    branches: [github-action-1]
 
