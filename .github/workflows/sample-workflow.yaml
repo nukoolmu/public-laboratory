@@ -6,8 +6,8 @@ on:
       tag:
         description: 'input workflow run number'
         required: true
-
-  push: [sample-app-0]
+  push: 
+   branches: [sample-app-0]
 
 jobs:
 
