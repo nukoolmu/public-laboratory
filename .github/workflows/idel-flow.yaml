@@ -1,4 +1,4 @@
-name: example-flow
+name: main-example-flow
 run-name: ${{ github.actor }} is learning GitHub Actions
 on:
   workflow_dispatch:
@@ -8,16 +8,10 @@ on:
         required: true
         default: '1.0.0'
         type: string
-#  push: 
-#   branches: [github-action-1]
+  push: 
+    branches: [github-action-1]
 
 jobs:
-  prepare:
-    if: github.event.inputs.tag == 'true'
-    runs-on: ubuntu-latest
-    steps:
-      - name: check software version
-        run: echo Software version is ${{ github.event.inputs.tag }}
 
   build:
     if: github.event_name == 'push'
@@ -51,7 +45,7 @@ jobs:
           minimum-approvals: 1
 
   deploy:
-    needs: approvals
+    needs: [build, approvals]
     runs-on: ubuntu-latest
     steps:
       - name: mockup deployed
