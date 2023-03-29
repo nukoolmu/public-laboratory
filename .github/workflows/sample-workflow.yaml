@@ -3,6 +3,10 @@ run-name: ${{ github.actor }} is learning GitHub Actions
 on: [push]
 jobs:
 
+  approvals:
+    review:
+        required: 1
+
   build:
     runs-on: ubuntu-latest
     steps:
@@ -22,17 +26,3 @@ jobs:
 
           docker build -f Dockerfile-appB . -t nukoolm/sample-app:github-1.0
           docker push nukoolm/sample-app:github-1.0
-          
-      - name: Request approval
-        uses: actions/github-script@v4
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          script: |
-            const approvers = ['nukoolmu', 'samah604'];
-            const approver = approvers[0]; // Select the first approver in the list
-            await github.pulls.createReviewRequest({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              pull_number: context.payload.pull_request.number,
-              reviewers: [approver]
-            });
