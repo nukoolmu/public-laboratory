@@ -45,6 +45,6 @@ jobs:
   deploy:
     needs: approvals
     runs-on: ubuntu-latest
-
+    steps:
       - name: mockup deployed
         run: echo Deploying ${{ github.event.inputs.tag }}
