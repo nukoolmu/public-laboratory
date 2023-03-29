@@ -51,7 +51,7 @@ jobs:
           docker build -f Dockerfile-appB . -t nukoolm/sample-app:github-1.0
           docker push nukoolm/sample-app:github-1.0
 
-    deploy:
+  deploy:
     if: workflow_dispatch.inputs.tag == "*"
     runs-on: ubuntu-latest
     steps:
