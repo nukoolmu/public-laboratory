@@ -3,7 +3,7 @@ run-name: ${{ github.actor }} is learning GitHub Actions
 on:
   workflow_dispatch:
     inputs:
-      tag:
+      version:
         description: 'input your software version'
         required: true
         default: '1.0.0'
@@ -55,4 +55,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: mockup deployed
-        run: echo Deploying ${{ github.event.inputs.tag }}
+        run: echo Deploying ${{ github.event.inputs.version }}
