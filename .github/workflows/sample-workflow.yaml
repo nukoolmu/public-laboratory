@@ -1,8 +1,7 @@
 name: example-flow
 run-name: ${{ github.actor }} is learning GitHub Actions
 on:
-  workflow_dispatch:
-    inputs:
+  inputs:
       tag:
         description: 'input workflow run number'
         required: true
@@ -10,7 +9,6 @@ on:
    branches: [github-action-1]
 
 jobs:
-
   build:
     if: github.event_name == 'push'
     runs-on: ubuntu-latest
