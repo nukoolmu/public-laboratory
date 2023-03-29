@@ -8,8 +8,8 @@ on:
         required: true
         default: '1.0.0'
         type: string
-  push: 
-   branches: [github-action-1]
+#  push: 
+#   branches: [github-action-1]
 
 jobs:
   prepare:
@@ -18,7 +18,7 @@ jobs:
     steps:
       - name: check software version
         run: echo Software version is ${{ github.event.inputs.tag }}
-        
+
   build:
     if: github.event_name == 'push'
     runs-on: ubuntu-latest
