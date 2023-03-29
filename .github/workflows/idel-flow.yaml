@@ -45,7 +45,7 @@ jobs:
           minimum-approvals: 1
 
   deploy:
-    needs: [build, approvals]
+    needs: approvals
     runs-on: ubuntu-latest
     steps:
       - name: mockup deployed
