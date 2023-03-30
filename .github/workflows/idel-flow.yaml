@@ -59,8 +59,8 @@ jobs:
           minimum-approvals: 1
 
   deploy:
-    needs: approvals
     runs-on: ubuntu-latest
+    needs: approvals
     steps:
       - name: mockup deployed
         run: echo Deploying ${{ env.IMAGE_TAG }}
