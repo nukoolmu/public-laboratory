@@ -63,4 +63,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: mockup deployed
-        run: echo Deploying ${{ github.event.inputs.version }}
+        run: echo Deploying ${{ env.IMAGE_TAG }}
