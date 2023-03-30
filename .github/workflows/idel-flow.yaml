@@ -47,7 +47,8 @@ jobs:
 
   approvals:
     runs-on: ubuntu-latest
-    needs: prepare
+    needs: build
+    if: ${{ always() }}
     steps:
       - name: wait for Approve    
         uses: trstringer/manual-approval@v1
