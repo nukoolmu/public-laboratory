@@ -27,6 +27,7 @@ jobs:
   build:
     if: github.event_name == 'push'
     runs-on: ubuntu-latest
+    needs: prepare
     steps:
       - name: check server-info
         run: lsb_release -a
@@ -46,7 +47,7 @@ jobs:
 
   approvals:
     runs-on: ubuntu-latest
-    needs: prepare || build    
+    needs: build || approvals
     steps:
       - name: wait for Approve    
         uses: trstringer/manual-approval@v1
