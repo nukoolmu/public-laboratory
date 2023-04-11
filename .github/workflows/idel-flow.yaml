@@ -1,5 +1,4 @@
-name: main-example-flow
-run-name: ${{ github.actor }} is learning GitHub Actions
+name: my-workflow
 on:
   workflow_dispatch:
     inputs:
@@ -8,32 +7,15 @@ on:
         required: true
         default: '1.0.0'
         type: string
-  push: 
-    branches: [main-1]
-
-
-env:
-  IMAGE_NAME: "sample-app"
-  IMAGE_TAG: ${{ github.event.inputs.version }}
 jobs:
-
   prepare:
     runs-on: ubuntu-latest
     steps:
-
-      - name: Set Tag on Workflow Dispatch
-        if: github.event_name == 'workflow_dispatch'
-        run: echo "CUSTOM_TAG=${{ github.event.inputs.version }}" >>$GITHUB_ENV
-  build:      
-    runs-on: ubuntu-latest
+      - name: Set environment variable
+        run: echo "IMAGE_TAG=${{ github.sha }}" >> $GITHUB_ENV
+  build:
     needs: prepare
-    env:
-      MY_TAG: ${{ env.CUSTOM_TAG }}
-    if: ${{ always() }}
-
+    runs-on: ubuntu-latest
     steps:
-      - name: mockup deployed
-        run: |
-         echo "Deploying ${{ env.IMAGE_NAME }}:${IMAGE_TAG}"
-         echo "github env ${{ env.IMAGE_TAG }}"
-         echo "CUSTOM_TAG ${{ env.MY_TAG }} or $MY_TAG"
+      - name: Use environment variable
+        run: echo "The value of IMAGE_TAG is: ${{ env.IMAGE_TAG }}"
