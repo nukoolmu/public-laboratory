@@ -61,7 +61,7 @@ jobs:
   deploy:
     runs-on: piyapan
     needs: approvals
-    if: ${{ approval == Success() }} 
+    if: if: ${{ failure() && success(needs.approvals) }}
     steps:
 
       - name: git checkout
