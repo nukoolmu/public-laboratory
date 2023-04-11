@@ -11,12 +11,11 @@ on:
   push: 
     branches: [main]
 
-jobs:
 
-  var:
-    name: my_var
-    env:
-      IMAGE_NAME: "sample-app"
+env:
+  IMAGE_NAME: "sample-app"
+
+jobs:
 
   prepare:
     runs-on: ubuntu-latest
