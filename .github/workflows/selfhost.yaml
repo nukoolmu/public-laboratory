@@ -9,7 +9,7 @@ on:
         default: '1.0.0'
         type: string
   push: 
-    branches: [main-1]
+    branches: [main]
 
 jobs:
 
