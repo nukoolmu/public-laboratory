@@ -20,11 +20,6 @@ jobs:
   prepare:
     runs-on: ubuntu-latest
     steps:
-      - name: check env
-        run: echo ${{ env.IMAGE_NAME }} 
-      - name: Set Tag on Push
-        if: github.event_name == 'push'
-        run: echo "IMAGE_TAG=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
 
       - name: Set Tag on Workflow Dispatch
         if: github.event_name == 'workflow_dispatch'
@@ -35,4 +30,4 @@ jobs:
     if: ${{ always() }}
     steps:
       - name: mockup deployed
-        run: echo Deploying ${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }}
+        run: echo Deploying ${{ env.IMAGE_NAME }}:${IMAGE_TAG}
