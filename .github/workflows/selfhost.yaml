@@ -9,7 +9,7 @@ on:
         default: '1.0.0'
         type: string
   push: 
-    branches: [main]
+    branches: [main-1]
 
 jobs:
 
@@ -65,6 +65,6 @@ jobs:
     steps:
 
       - name: check files
-        run: ls -lrt
+        run: tree -a public-laboratory
       - name: deployed
         run: helm upgrade --install -f public-laboratory/chart/values.yaml myapp  public-laboratory/chart/ --set image=nukoolm/sample-app:github-1.0
