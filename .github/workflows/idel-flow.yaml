@@ -29,10 +29,10 @@ jobs:
     needs: prepare
     if: ${{ always() }}
     env:
-      CUSTOM_TAG: ${{ env.CUSTOM_TAG }}
+      MY_TAG: ${{ env.CUSTOM_TAG }}
     steps:
       - name: mockup deployed
         run: |
          echo "Deploying ${{ env.IMAGE_NAME }}:${IMAGE_TAG}"
          echo "github env ${{ env.IMAGE_TAG }}"
-         echo "CUSTOM_TAG ${{ env.CUSTOM_TAG }} or $CUSTOM_TAG"
+         echo "CUSTOM_TAG ${{ env.MY_TAG }} or $MY_TAG"
