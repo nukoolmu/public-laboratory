@@ -60,10 +60,8 @@ jobs:
 
   deploy:
     runs-on: piyapan
-    needs: 
-      - build
-      - approvals
-    if: ${{ github.event.review.state == 'approved' || needs.build.result == 'success' }}
+    needs: approvals
+    if: ${{ needs.approvals.result == 'success' }}
     steps:
 
       - name: git checkout
