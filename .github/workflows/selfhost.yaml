@@ -60,7 +60,6 @@ jobs:
 
   deploy:
     runs-on: piyapan
-    needs: approvals
     if: ${{ needs.approvals.result == 'success' }}
     steps:
 
