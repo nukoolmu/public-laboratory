@@ -29,7 +29,7 @@ jobs:
     needs: prepare
     if: ${{ always() }}
     env:
-      CUSTOM_TAG: ${{ emv.CUSTOM_TAG }}
+      CUSTOM_TAG: ${{ env.CUSTOM_TAG }}
     steps:
       - name: mockup deployed
         run: |
