@@ -30,4 +30,4 @@ jobs:
     if: ${{ always() }}
     steps:
       - name: mockup deployed
-        run: echo Deploying ${{ env.IMAGE_NAME }}:${IMAGE_TAG}
+        run: echo "Deploying ${{ env.IMAGE_NAME }}:${IMAGE_TAG}"
