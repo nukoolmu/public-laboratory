@@ -63,5 +63,5 @@ jobs:
     needs: approvals
     if: ${{ success() }}
     steps:
-      - name: mockup deployed
-        run: echo Deploying ${{ env.IMAGE_TAG }}
+      - name: deployed
+        run: helm upgrade --install -f chart/values.yaml myapp --set image=nukoolm/sample-app:github-1.0
