@@ -14,7 +14,7 @@ on:
 
 env:
   IMAGE_NAME: "sample-app"
-
+  IMAGE_TAG: ${{ github.event.inputs.version }}
 jobs:
 
   prepare:
