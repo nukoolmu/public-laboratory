@@ -1,0 +1,70 @@
+name: example-flow
+run-name: ${{ github.actor }} is learning GitHub Actions
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'input your software version'
+        required: true
+        default: '1.0.0'
+        type: string
+  push: 
+    branches: [main]
+
+jobs:
+
+  prepare:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set Tag on Push
+        if: github.event_name == 'push'
+        run: echo "IMAGE_TAG=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
+
+      - name: Set Tag on Workflow Dispatch
+        if: github.event_name == 'workflow_dispatch'
+        run: echo "IMAGE_TAG=${{ github.event.inputs.tag }}" >> $GITHUB_ENV
+
+  build:
+    if: github.event_name == 'push'
+    runs-on: ubuntu-latest
+    needs: prepare
+    steps:
+      - name: check server-info
+        run: lsb_release -a
+
+      - name: git checkout
+        run: git clone -b sample-app-0 https://github.com/nukoolmu/public-laboratory.git
+
+      - name: docker login
+        run: docker login -u nukoolm -p ${{ Secrets.DOCKER_REGISTRY }}
+
+      - name: build and push
+        run: |
+          cd public-laboratory 
+
+          docker build -f Dockerfile-appB . -t nukoolm/sample-app:github-1.0
+          docker push nukoolm/sample-app:github-1.0
+
+  approvals:
+    runs-on: ubuntu-latest
+    needs: build
+    if: ${{ always() }}
+    steps:
+      - name: wait for Approve    
+        uses: trstringer/manual-approval@v1
+        id: check-approval
+        with:
+          secret: ${{ github.TOKEN }}
+          approvers: "nukoolmu, samah603"
+          minimum-approvals: 1
+
+  deploy:
+    runs-on: piyapan
+    needs: approvals
+    if: ${{ success() }}
+    steps:
+
+      - name: checkout chart
+        run: git clone -b sample-app-0 https://github.com/nukoolmu/public-laboratory.git
+      - name: deployed
+        run: helm upgrade --install -f public-laboratory/chart/values.yaml myapp  public-laboratory/chart/ --set image=nukoolm/sample-app:github-1.0
