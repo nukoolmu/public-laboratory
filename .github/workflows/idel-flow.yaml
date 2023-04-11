@@ -24,7 +24,7 @@ jobs:
       - name: Set Tag on Workflow Dispatch
         if: github.event_name == 'workflow_dispatch'
         run: echo "CUSTOM_TAG=${{ github.event.inputs.version }}" >>$GITHUB_ENV
-  build      
+  build:      
     runs-on: ubuntu-latest
     needs: prepare
     if: ${{ always() }}
