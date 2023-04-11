@@ -27,9 +27,10 @@ jobs:
   build:      
     runs-on: ubuntu-latest
     needs: prepare
-    if: ${{ always() }}
     env:
       MY_TAG: ${{ env.CUSTOM_TAG }}
+    if: ${{ always() }}
+
     steps:
       - name: mockup deployed
         run: |
