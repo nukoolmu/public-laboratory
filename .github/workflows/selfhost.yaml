@@ -61,7 +61,7 @@ jobs:
   deploy:
     runs-on: piyapan
     needs: approvals
-    if: github.event.review.state == 'approved'
+    if: github.event.review.state == 'Approved'
     steps:
 
       - name: git checkout
