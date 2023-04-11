@@ -63,7 +63,7 @@ jobs:
     needs: 
       - build
       - approvals
-    if: ${{ always() && github.event.review.state == 'approved' || needs.C.result == 'success' }}
+    if: ${{ always() && github.event.review.state == 'approved' || needs.build.result == 'success' }}
     steps:
 
       - name: git checkout
