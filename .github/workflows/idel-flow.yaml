@@ -19,4 +19,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Use environment variable
-        run: echo "The value of IMAGE_TAG is: ${{ env.IMAGE_TAG }}"
+        run: echo "The value of IMAGE_TAG is ${{ env.IMAGE_TAG }}"
