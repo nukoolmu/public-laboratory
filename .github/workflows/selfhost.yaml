@@ -9,7 +9,7 @@ on:
         default: '1.0.0'
         type: string
   push: 
-    branches: [main]
+    branches: [main-1]
 
 jobs:
 
@@ -61,7 +61,7 @@ jobs:
   deploy:
     runs-on: piyapan
     needs: approvals
-    if: github.event.review.state == 'Approved'
+    if: ${{ approval == Success() }} 
     steps:
 
       - name: git checkout
