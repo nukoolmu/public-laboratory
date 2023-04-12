@@ -52,7 +52,7 @@ jobs:
           minimum-approvals: 1
 
   deploy:
-    needs: [build, approve]
+    needs: [prepare, build, approve]
     runs-on: ubuntu-latest
     steps:
       - name: Deploy Image
