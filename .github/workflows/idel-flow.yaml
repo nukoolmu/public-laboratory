@@ -1,6 +1,13 @@
 name: My-Workshop
 
 on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'input your software version'
+        required: true
+        default: '1.0.0'
+        type: string
   push:
     branches:
       - main
@@ -11,12 +18,16 @@ jobs:
     outputs:
       image-version: ${{ steps.set-image-version.outputs.image-version }}
     steps:
-      - name: Set Image Version
-        id: set-image-version
+      - name: Set Tag on Push
+        if: github.event_name == 'push'
         run: |
-          echo "IMAGE_VERSION=1.0.0"
-          echo "::set-output name=image-version::1.0.0"
-
+          echo "IMAGE_TAG=${GITHUB_REF#refs/*/}"
+          echo "::set-output name=image-version::${GITHUB_REF#refs/*/}"
+      - name: Set Tag on Workflow Dispatch
+        if: github.event_name == 'workflow_dispatch'
+        run: |
+          echo "IMAGE_TAG=${{ github.event.inputs.version }}"
+          echo "::set-output name=image-version::${{ github.event.inputs.version }}"
   build:
     if: github.event_name == 'push'
     runs-on: ubuntu-latest
