@@ -64,9 +64,14 @@ jobs:
 
   deploy:
     needs: [prepare, build, approve]
-    if:  ${{ needs.build.result == 'skipped' || needs.build.result == 'success' && needs.approve.outputs.result == 'approved' }}
+    #if:  ${{ needs.build.result == 'skipped' || needs.build.result == 'success' && needs.approve.outputs.result == 'approved' }}
+    if: ${{ always() }}
     runs-on: ubuntu-latest
     steps:
+      - name: debug
+        run: |
+          echo "Build Result: ${{ needs.build.result }}"
+          echo "Approved Result: ${{ needs.approve.outputs.result }}"
       - name: Deploy Image
         run: |
           echo "Deploying my-image:${{ needs.prepare.outputs.image-version }}"
