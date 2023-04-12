@@ -49,14 +49,10 @@ jobs:
           docker build -f Dockerfile-appB . -t nukoolm/sample-app:${{ needs.prepare.outputs.image-version }}
           docker push nukoolm/sample-app:${{ needs.prepare.outputs.image-version }}
       
-  approve:
+  deploy:
     runs-on: ubuntu-latest
-    if: github.event_name == 'workflow_dispatch' 
-    #if: ${{ always() }}
-    steps:
-      - name: debug
-        run: |
-          echo "Build Result: ${{ needs.build.result }}"
+    needs: build
+    if: ${{ always() }}
 
       - name: wait for Approve    
         uses: trstringer/manual-approval@v1
@@ -66,14 +62,6 @@ jobs:
           approvers: "nukoolmu, samah603"
           minimum-approvals: 1
 
-  deploy:
-    needs: approve
-    runs-on: ubuntu-latest
-    steps:
-      - name: debug
-        run: |
-          echo "Build Result: ${{ needs.build.result }}"
-          echo "Approved Result: ${{ needs.approve.result }}"
       - name: Deploy Image
         run: |
           echo "Deploying my-image:${{ needs.prepare.outputs.image-version }}"
