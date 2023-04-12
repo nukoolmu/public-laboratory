@@ -52,8 +52,13 @@ jobs:
   approve:
     runs-on: ubuntu-latest
     needs: build
-    if: ${{ needs.build.result == 'skipped' || needs.build.result == 'success' }}
+#    if: ${{ needs.build.result == 'skipped' || needs.build.result == 'success' }}
+    if: ${{ always() }}
     steps:
+      - name: debug
+        run: |
+          echo "Build Result: ${{ needs.build.result }}"
+
       - name: wait for Approve    
         uses: trstringer/manual-approval@v1
         id: check-approval
