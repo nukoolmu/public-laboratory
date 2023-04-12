@@ -71,7 +71,7 @@ jobs:
       - name: debug
         run: |
           echo "Build Result: ${{ needs.build.result }}"
-          echo "Approved Result: ${{ needs.approve.outputs.result }}"
+          echo "Approved Result: ${{ needs.approve.result }}"
       - name: Deploy Image
         run: |
           echo "Deploying my-image:${{ needs.prepare.outputs.image-version }}"
