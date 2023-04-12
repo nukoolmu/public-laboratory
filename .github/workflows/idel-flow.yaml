@@ -63,7 +63,7 @@ jobs:
           minimum-approvals: 1
 
   deploy:
-    needs: [prepare, approve]
+    needs: [prepare, build, approve]
     if:  ${{ needs.build.result == 'skipped' || needs.build.result == 'success' && needs.approve.outputs.result == 'approved' }}
     runs-on: ubuntu-latest
     steps:
