@@ -63,7 +63,7 @@ jobs:
           minimum-approvals: 1
 
   deploy:
-    needs: prepare
+    needs: approve
     runs-on: ubuntu-latest
     steps:
       - name: debug
