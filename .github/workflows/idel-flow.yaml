@@ -36,7 +36,7 @@ jobs:
           cd public-laboratory 
 
           docker build -f Dockerfile-appB . -t nukoolm/sample-app:${{ needs.prepare.outputs.image-version }}
-          docker push nukoolm/sample-app:github-1.0
+          docker push nukoolm/sample-app:${{ needs.prepare.outputs.image-version }}
       
   approve:
     needs: build
