@@ -64,7 +64,7 @@ jobs:
 
   deploy:
     needs: [prepare, approve]
-    if:  ${{ (success() || needs.build.result == 'skipped') && needs.approve.outputs.result == 'approved' }}
+    if:  ${{ needs.build.result == 'skipped' || needs.build.result == 'success' && needs.approve.outputs.result == 'approved' }}
     runs-on: ubuntu-latest
     steps:
       - name: Deploy Image
