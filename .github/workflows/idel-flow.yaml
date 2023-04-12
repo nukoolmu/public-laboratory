@@ -64,8 +64,7 @@ jobs:
 
   deploy:
     needs: [prepare, build, approve]
-    #if:  ${{ needs.build.result == 'skipped' || needs.build.result == 'success' && needs.approve.outputs.result == 'approved' }}
-    if: ${{ always() }}
+    if:  ${{ needs.build.result == 'skipped' || needs.build.result == 'success' && needs.approve.result == 'success' }}
     runs-on: ubuntu-latest
     steps:
       - name: debug
