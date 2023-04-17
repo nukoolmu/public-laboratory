@@ -4,5 +4,5 @@ WORKDIR /app
 ADD . .
 RUN npm install
 
-CMD node ./src/server.js
+CMD node ./src/api.js
 

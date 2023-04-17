@@ -24,7 +24,18 @@ services:
 #    build: .
     image: myapi
     ports:
+      - "8081:3000"
+  backend:
+#    build: .
+    image: mybe
+    ports:
+      - "8082:3000"
+  frontend:
+#    build: .
+    image: myfe
+    ports:
       - "80:3000"
+
 volumes:
   zookeeper_data:
     driver: local
