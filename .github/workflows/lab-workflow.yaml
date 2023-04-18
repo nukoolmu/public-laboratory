@@ -31,4 +31,4 @@ jobs:
       - name: check github environment
         run: hostname
       - name: deploy app
-        run: echo "deploying app version ${{ needs.build.outputs.image-version }} "        
+        run: echo "deploying app version ${{ needs.build.outputs.BUILD_ARGS}} "        
