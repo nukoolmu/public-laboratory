@@ -10,12 +10,12 @@ jobs:
   build: 
     runs-on: ubuntu-latest
     outputs:
-      image-version: ${{ steps.set-image-version.outputs.image-version }}
+      image-version: ${{ steps.create-variable.outputs.image-version }}
     steps:
       - name: check github environment
         run: hostname
       
-      - name: create variable
+      - name: create-variable
         run: |
           echo "BUILD_ARGS=prod-1.0.0" >> $GITHUB_ENV
           echo "::set-output name=image-version:: $BUILD_ARGS"
