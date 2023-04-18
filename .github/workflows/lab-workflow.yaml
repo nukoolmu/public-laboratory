@@ -11,6 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       image-version: ${{ steps.create-variable.outputs.image-version }}
+      developer: piyapan
     steps:
       - name: check github environment
         run: hostname
@@ -31,4 +32,4 @@ jobs:
       - name: check github environment
         run: hostname
       - name: deploy app
-        run: echo "deploying app version ${{ needs.build.outputs.image-version}}"        
+        run: echo "deploying app version ${{ needs.build.outputs.image-version}} Developer by ${{ needs.build.outputs.developer }}"        
