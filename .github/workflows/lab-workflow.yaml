@@ -16,6 +16,7 @@ env:
 jobs:
   build: 
     runs-on: ubuntu-latest
+    if: ${{ github.event_name != 'workflow_dispatch' }}
     outputs:
       image-version: ${{ steps.create-variable.outputs.image-version }}
       developer: ${{ github.actor }}
@@ -35,7 +36,6 @@ jobs:
   deploy: 
     runs-on: self-hosted
     needs: build
-    if: ${{ github.event_name != 'workflow_dispatch' }}
     steps:
       - name: check github environment
         run: hostname
