@@ -11,7 +11,7 @@ jobs:
         run: hostname
 
   deploy: 
-    runs-on: piyapan
+    runs-on: self-hosted
     steps:
       - name: check github environment
         run: hostname
