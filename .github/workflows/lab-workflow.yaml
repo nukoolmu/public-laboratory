@@ -3,12 +3,18 @@ on:
   push:
     branches:
       - main
+env:
+  WORDING: "Piyapan"
+
 jobs:
   build: 
     runs-on: ubuntu-latest
     steps:
       - name: check github environment
         run: hostname
+      
+      - name: build application
+        run: echo "build for ${{ env.WORDING }}"
 
   deploy: 
     runs-on: self-hosted
