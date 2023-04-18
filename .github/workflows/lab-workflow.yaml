@@ -10,7 +10,7 @@ jobs:
   build: 
     runs-on: ubuntu-latest
     outputs:
-      image-version: 1.0.0
+      image-version: ${{ steps.set-image-version.outputs.image-version }}
     steps:
       - name: check github environment
         run: hostname
@@ -19,6 +19,7 @@ jobs:
         run: |
           echo "BUILD_ARGS=prod-1.0.0" >> $GITHUB_ENV
           echo "BUILD_ARGS=prod-1.0.0" >> $GITHUB_OUTPUT
+          echo "::set-output name=image-version::prod-1.0.0"
 
       - name: build application
         run: echo "build for ${{ env.WORDING }} by $BUILD_ARGS "
