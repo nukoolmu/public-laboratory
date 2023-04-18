@@ -10,7 +10,7 @@ jobs:
   build: 
     runs-on: ubuntu-latest
     outputs:
-      image-version: ${{ steps.set-image-version.outputs.image-version }}
+      image-version: ${{ steps.create-variable.outputs.image-version }}
     steps:
       - name: check github environment
         run: hostname
