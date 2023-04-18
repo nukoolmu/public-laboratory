@@ -36,6 +36,7 @@ jobs:
   deploy: 
     runs-on: self-hosted
     needs: build
+    if: ${{ always() }}
     steps:
       - name: check github environment
         run: hostname
