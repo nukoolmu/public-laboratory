@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       image-version: ${{ steps.create-variable.outputs.image-version }}
-      developer: piyapan
+      developer: ${{ github.actor }}
     steps:
       - name: check github environment
         run: hostname
