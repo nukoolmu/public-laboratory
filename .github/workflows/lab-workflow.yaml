@@ -13,8 +13,11 @@ jobs:
       - name: check github environment
         run: hostname
       
+      - name: create variable
+        run: echo "BUILD_ARGS=prod-1.0.0" > $GITHUB_ENV
+
       - name: build application
-        run: echo "build for ${{ env.WORDING }}"
+        run: echo "build for ${{ env.WORDING }} by $BUILD_ARGS "
 
   deploy: 
     runs-on: self-hosted
