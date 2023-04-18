@@ -7,9 +7,9 @@ on:
         required: true
         default: '1.0.0'
         type: string
-#  push:
-#    branches:
-#      - main
+  push:
+    branches:
+      - main
 env:
   WORDING: "Piyapan"
 
@@ -35,6 +35,7 @@ jobs:
   deploy: 
     runs-on: self-hosted
     needs: build
+    if: ${{ github.event_name != 'workflow_dispatch' }}
     steps:
       - name: check github environment
         run: hostname
