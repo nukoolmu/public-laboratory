@@ -1,5 +1,12 @@
 name: Lab-Workflow
 on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'input your software version'
+        required: true
+        default: '1.0.0'
+        type: string
   push:
     branches:
       - main
