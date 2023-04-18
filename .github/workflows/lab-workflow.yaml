@@ -16,6 +16,7 @@ jobs:
         run: hostname
       
       - name: create-variable
+        id: create-variable
         run: |
           echo "BUILD_ARGS=prod-1.0.0" >> $GITHUB_ENV
           echo "BUILD_ARGS=prod-1.0.0" >> $GITHUB_OUTPUT
