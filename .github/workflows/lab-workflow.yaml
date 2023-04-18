@@ -9,20 +9,25 @@ env:
 jobs:
   build: 
     runs-on: ubuntu-latest
+    outputs:
+      image-version: ${{ steps.set-image-version.outputs.image-version }}
     steps:
       - name: check github environment
         run: hostname
       
       - name: create variable
-        run: echo "BUILD_ARGS=prod-1.0.0" >> $GITHUB_ENV
-
+        run: |
+          echo "BUILD_ARGS=prod-1.0.0" >> $GITHUB_ENV
+          echo "::set-output name=image-version:: $BUILD_ARGS"
+        
       - name: build application
         run: echo "build for ${{ env.WORDING }} by $BUILD_ARGS "
 
   deploy: 
     runs-on: self-hosted
+    needs: build
     steps:
       - name: check github environment
         run: hostname
       - name: deploy app
-        run: echo "deploying app version $BUILD_ARGS "        
+        run: echo "deploying app version ${{ needs.build.outputs.image-version }} "        
