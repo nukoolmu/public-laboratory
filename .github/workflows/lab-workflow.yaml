@@ -21,6 +21,15 @@ jobs:
       image-version: ${{ steps.create-variable.outputs.image-version }}
       developer: ${{ github.actor }}
     steps:
+    
+      - name: wait for Approve    
+        uses: trstringer/manual-approval@v1
+        id: check-approval
+        with:
+          secret: ${{ github.TOKEN }}
+          approvers: "nukoolmu, samah603"
+          minimum-approvals: 1
+    
       - name: check github environment
         run: hostname
       
