@@ -14,7 +14,7 @@ jobs:
         run: hostname
       
       - name: create variable
-        run: echo "BUILD_ARGS=prod-1.0.0" > $GITHUB_ENV
+        run: echo "BUILD_ARGS=prod-1.0.0" >> $GITHUB_ENV
 
       - name: build application
         run: echo "build for ${{ env.WORDING }} by $BUILD_ARGS "
@@ -24,3 +24,5 @@ jobs:
     steps:
       - name: check github environment
         run: hostname
+      - name: deploy app
+        run: echo "deploying app version $BUILD_ARGS "        
