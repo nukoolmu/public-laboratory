@@ -108,47 +108,7 @@ and syslog-ngx we assume that is another server as the green side, it'll be reci
 syslog-ng.conf as syslogs-ngx
 
 ```bash
-#############################################################################
-# Default syslog-ng.conf file which collects all local logs into a
-# single file called /var/log/messages tailored to container usage.
 
-@version: 4.1
-@include "scl.conf"
-
-source s_local {
-  internal();
-};
-
-source s_network_tcp {
-  syslog(transport(tcp) port(6601));
-};
-
-source s_network_udp {
-  syslog(transport(udp) port(5514));
-};
-
-destination d_cluster {
-  file("/var/log/messages-kv.log" template("$ISODATE $HOST $(format-welf --scope all-nv-pairs)\n") frac-digits(3));        
-};
-
-destination d_remote {
-    udp("10.138.36.250" port(3514));
-};
-
-log {
-  source(s_local);
-  source(s_network_tcp);
-  source(s_network_udp);
-  destination(d_cluster);
-};
-[root@DDSNLABA001G sys-node-1]# ls
-config  log
-[root@DDSNLABA001G sys-node-1]# cd ../
-[root@DDSNLABA001G syslogs-ng]# ls
-config  docker-compose.yaml  logs  start.bash  sys-node-1  sys-node-2  sys-node-x
-[root@DDSNLABA001G syslogs-ng]# cat sys-node-x/config/syslog-ng.c
-syslog-ng.conf  syslog-ng.ctl
-[root@DDSNLABA001G syslogs-ng]# cat sys-node-x/config/syslog-ng.conf 
 #############################################################################
 # Default syslog-ng.conf file which collects all local logs into a
 # single file called /var/log/messages tailored to container usage.
