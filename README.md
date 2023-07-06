@@ -140,3 +140,74 @@ log {
 };
 
 ```
+
+as the load balancer , We use the nginx to forward udp protocal
+
+
+/etc/nginx/nginx.conf
+
+```bash
+user  nginx;
+worker_processes  auto;
+
+error_log  /var/log/nginx/error.log notice;
+pid        /var/run/nginx.pid;
+
+
+events {
+    worker_connections  1024;
+}
+
+
+http {
+    include       /etc/nginx/mime.types;
+    default_type  application/octet-stream;
+
+    log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
+                      '$status $body_bytes_sent "$http_referer" '
+                      '"$http_user_agent" "$http_x_forwarded_for"';
+
+    access_log  /var/log/nginx/access.log  main;
+
+    sendfile        on;
+    #tcp_nopush     on;
+
+    keepalive_timeout  65;
+
+    #gzip  on;
+
+    include /etc/nginx/conf.d/*.conf;
+}
+
+stream {
+
+    upstream syslog_servers {
+        least_conn;
+        server 10.x.x.x:1514;
+        server 10.x.x.x:2514;
+    }
+
+
+    server {
+        listen     514 udp;
+        proxy_pass syslog_servers;
+    }
+
+}
+```
+
+and start the nginx by docker containner
+
+```bash
+docker run -d --name logical-lb -p 514:514 -v /app/syslogs-ng/logical-lb/conf/nginx.conf:/etc/nginx/nginx.conf nginx
+```
+
+configure rsyslog.conf as client server to feed logs to logical-lb
+
+/etc/rsyslog.conf add the last line
+```bash
+### LAB-SYSLOGS ##
+auth.info,authpriv.info,cron.info,user.info @10.x.x.x:514
+```
+
+restart rsyslogs service `systemctl restart rsyslog`
