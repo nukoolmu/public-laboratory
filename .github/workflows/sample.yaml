@@ -1,0 +1,32 @@
+name: sample-flows
+
+# Controls when the workflow will run
+on:
+  workflow_call:
+    inputs:
+      run_on:
+        required: false
+        type: string
+        default: "self-hosted"
+      env:
+        description: Environment
+        required: false
+        default: "dev"
+        type: string
+
+jobs:
+  pre-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Preparation
+        run: echo "This is Preparation steps"
+        
+      - name: Checkout code
+        uses: actions/checkout@v2
+        with:
+          repository: nukoolmu/public-laboratory
+          path: cpc-ate
+          ref: main
+          
+      - name: full test
+        run: echo "test-complete"
