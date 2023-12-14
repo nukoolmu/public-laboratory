@@ -9,7 +9,7 @@ on:
         type: string
   push:
     branches:
-      - main
+      - main-1
 env:
   WORDING: "Piyapan"
 
