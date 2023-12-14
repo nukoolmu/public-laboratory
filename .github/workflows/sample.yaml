@@ -24,6 +24,6 @@ jobs:
       - name: full test
         run: echo "test-complete"
 
-  call-extjob:
+  ext-job:
     uses: corp-ais/cpc-ate/.github/workflows/00-simple.yaml@poc
     secrets: inherit
