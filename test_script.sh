@@ -18,5 +18,5 @@ docker exec -it public-laboratory_3bb_client1_1 curl -i -X POST http://172.16.23
 docker exec -it public-laboratory_3bb_client2_1 curl -i -X POST http://172.16.238.14/be -H "Host: sit.forwarder.lab.com" -H "Content-Type: app5ication/json" -H 'custom_header: myheader' -d '{"name": "mydata"}'
 
 # AIS Network
-docker exec -it public-laboratory_ais_client1_1 curl -i -X POST http://172.16.238.15/be -H "Host: sit.forwarder.lab.com" -H "Content-Type: app5ication/json"  -H 'X-Forwarded-For: 172.16.238.10' -d '{"name": "mydata"}'
-docker exec -it public-laboratory_ais_client1_1 curl -i -X POST http://172.16.238.15/be -H "Host: sit.forwarder.lab.com" -H "Content-Type: app5ication/json"  -H 'X-Forwarded-For: 172.16.238.11' -d '{"name": "mydata"}'
+docker exec -it public-laboratory_ais_client1_1 curl -i -X POST http://172.16.238.15/be -H "Host: sit.forwarder.lab.com" -H "Content-Type: app5ication/json"  -H 'X-Forwarded-For: 172.16.238.12' -d '{"name": "mydata"}'
+docker exec -it public-laboratory_ais_client1_1 curl -i -X POST http://172.16.238.15/be -H "Host: sit.forwarder.lab.com" -H "Content-Type: app5ication/json"  -H 'X-Forwarded-For: 172.16.238.13' -d '{"name": "mydata"}'
