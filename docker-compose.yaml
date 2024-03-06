@@ -46,7 +46,8 @@ services:
     # Add other configurations as needed
 
   be:
-    image: nginx
+# you need to build app frist docker build -t myapp .
+    image: myapp
     networks:
       my_network:
         ipv4_address: 172.16.238.16
