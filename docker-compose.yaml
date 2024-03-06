@@ -1,0 +1,60 @@
+version: '3'
+services:
+  3bb_client1:
+    image: nginx
+    networks:
+      my_network:
+        ipv4_address: 172.16.238.10
+    # Add other configurations as needed
+
+  3bb_client2:
+    image: nginx
+    networks:
+      my_network:
+        ipv4_address: 172.16.238.11
+    # Add other configurations as needed
+
+  ais_client1:
+    image: nginx
+    networks:
+      my_network:
+        ipv4_address: 172.16.238.12
+    # Add other configurations as needed
+
+  ais_client2:
+    image: nginx
+    networks:
+      my_network:
+        ipv4_address: 172.16.238.13
+    # Add other configurations as needed
+
+  f5simulate:
+    image: nginx
+    networks:
+      my_network:
+        ipv4_address: 172.16.238.14
+    # Add other configurations as needed
+    volumes:
+      - ~/workspace/public-laboratory/f5_conf:/etc/nginx/conf.d
+  forwarder:
+    image: nginx
+    networks:
+      my_network:
+        ipv4_address: 172.16.238.15
+    volumes:
+      - ~/workspace/public-laboratory/nginx_conf:/etc/nginx/conf.d
+    # Add other configurations as needed
+
+  be:
+    image: nginx
+    networks:
+      my_network:
+        ipv4_address: 172.16.238.16
+    # Add other configurations as needed
+
+networks:
+  my_network:
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.16.238.0/24
