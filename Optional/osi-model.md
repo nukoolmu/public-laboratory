@@ -2,6 +2,9 @@
 
 # OSI Modle Open Systems Interconnection)
 
+> The OSI (Open Systems Interconnection) model is a conceptual framework used to understand network communication. It consists of seven layers, each responsible for specific functions in network communication.
+
+```mermaid
 flowchart TD
     A[Physical Layer] --> B[Data Link Layer]
     B --> C[Network Layer]
@@ -10,6 +13,7 @@ flowchart TD
     E --> F[Presentation Layer]
     F --> G[Application Layer]
 
+```
 
 | Layer                | Description                                                                                    |
 |----------------------|------------------------------------------------------------------------------------------------|
